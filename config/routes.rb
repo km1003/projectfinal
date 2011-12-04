@@ -1,5 +1,7 @@
 Lab8::Application.routes.draw do
 
+  resources :users
+  
  root :to => 'pages#home'
   match '/customize', :to => 'pages#customize'
   match '/home', :to => 'pages#home'

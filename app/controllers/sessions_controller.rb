@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  def new
+  def submit
+    @title = "Submit Order"
   end
 
 end
