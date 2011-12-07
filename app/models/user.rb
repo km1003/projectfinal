@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
- attr_accessible :name, :email
+  
+  attr_accessible :name, :email
   
   email_regexp = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -9,4 +10,8 @@ class User < ActiveRecord::Base
   validates :email, :presence => true,
                     :format   => { :with => email_regexp},
                     :uniqueness => {:case_sensitive => false}
+
+  def self.authenticate(email)
+     user = find_by_email(email)
+  end
 end

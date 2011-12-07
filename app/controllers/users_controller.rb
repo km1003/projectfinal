@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+  before_filter :authenticate, :only => [:edit, :update]
+  before_filter :correct_user, :only => [:edit, :update]
+  
   def new   # responds to get /users/new by rendering new.html.erb
-    @title = "Sign up"
+    @title = "Submit Order"
     @user = User.new
   end
   
@@ -9,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to user_path(@user)
     else
-      @title = "Sign up"
+      @title = "Submit Order"
       render 'new'
     end
   end
@@ -21,7 +24,31 @@ class UsersController < ApplicationController
   
   def index  # responds to get /users by rendering index.html.erb
     @title = "Current users"
-    @users = User.all
+    @users = User.paginate(:page =>params[:page])
   end
+  
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(:page =>params[:page])
+    render 'show_follow'
+  end
+  
+   def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(:page => params[:page])
+    render 'show_follow'
+  end
+  
+  private
+     def authenticate
+       deny_access unless signed_in? 
+     end
+     
+     def correct_user
+       @user = User.find(parms[:id])
+       redirect_to(root_path) unless current_user?(@user)
+     end
 
 end

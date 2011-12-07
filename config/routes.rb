@@ -8,11 +8,13 @@ Lab8::Application.routes.draw do
   match '/login', :to => 'pages#login'
   match '/orders', :to => 'pages#orders'
   match '/submit', :to => 'sessions#submit'
+  match '/new', :to => 'users#new'
   get "pages/home"
   get "pages/login"
   get "pages/orders"
   get "pages/customize"
   get "sessions/submit"
+  get "users/new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
