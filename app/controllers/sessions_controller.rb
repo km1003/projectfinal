@@ -9,13 +9,17 @@ class SessionsController < ApplicationController
       @title = "Sign in"
       render 'submit'
     else
-      sign_in user
+      #sign_in user
+      cookies.permanent[:remember_token] = user.email
+      current_user = user
       redirect_to user
     end
   end
 
   def destroy
-     sign_out
+     #sign_out
+     cookies.delete(:remember_token)
+     current_user= nil
      redirect_to root_path
   end
 end

@@ -3,19 +3,19 @@ Lab8::Application.routes.draw do
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   
- root :to => 'pages#home'
+  root :to => 'pages#home'
   match '/customize', :to => 'pages#customize'
-  match '/home', :to => 'pages#home'
-  match '/login', :to => 'sessions#new'
+  match '/signin', :to => 'sessions#new'
   match '/orders', :to => 'pages#orders'
-  match '/submit', :to => 'sessions#new'
   match '/logout', :to => 'sessions#destroy'
   match '/new', :to => 'users#new'
-  get "pages/home"
-  get "pages/orders"
-  get "pages/customize"
-  get "sessions/new"
-  get "users/new"
+  #match '/home', :to => 'pages#home'
+  #match '/submit', :to => 'sessions#new'
+  #get "pages/home"
+  #get "pages/orders"
+  #get "pages/customize"
+  #get "sessions/new"
+  #get "users/new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

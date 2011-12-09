@@ -1,8 +1,8 @@
 <h3>Open orders:</h3>
 
 <% if signed_in? %>
-<h1 class="micropost">What's up?</h1>
+<h1>Signed In Successfully</h1>
 <%= render 'shared/openorders' %>
 <% else %>You are not signed in. 
-<%= link_to "Sign In", submit_path, :class => "signup_button round" %>
+<%= link_to "Sign In", login_path, :class => "signup_button round" %>
 <% end %>
