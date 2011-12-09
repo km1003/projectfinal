@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user.nil?
       flash.now[:error] = "Invalid email"
       @title = "Sign in"
-      render 'submit'
+      render 'new'
     else
       #sign_in user
       cookies.permanent[:remember_token] = user.email
