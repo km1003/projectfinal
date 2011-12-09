@@ -1,4 +1,8 @@
 <h3>Open orders:</h3>
-<p>
-	<textarea rows="20" cols="40"></textarea>
-</p>
+
+<% if signed_in? %>
+<h1 class="micropost">What's up?</h1>
+<%= render 'shared/openorders' %>
+<% else %>You are not signed in. 
+<%= link_to "Sign In", submit_path, :class => "signup_button round" %>
+<% end %>
