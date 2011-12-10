@@ -1,5 +1,5 @@
 <footer>
 	<div id="footer">
-		<label id="labelBanner"><%= @page_label %></label>
+		<label id="labelBanner"><% if signed_in? %>Signed in as: <%= current_user.name %><% else %>You are not logged in<% end %></label>
 	</div>
 </footer>

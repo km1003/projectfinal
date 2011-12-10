@@ -2,10 +2,12 @@ Lab8::Application.routes.draw do
 
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :orders, :only =>[:create, :destroy]
   
   root :to => 'pages#home'
   match '/customize', :to => 'pages#customize'
   match '/signin', :to => 'sessions#new'
+  match '/signout', :to => 'sessions#logout'
   match '/orders', :to => 'pages#orders'
   match '/logout', :to => 'sessions#destroy'
   match '/new', :to => 'users#new'

@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111204045606) do
+ActiveRecord::Schema.define(:version => 20111210020355) do
+
+  create_table "orders", :force => true do |t|
+    t.integer  "order_number"
+    t.integer  "user_id"
+    t.string   "cpu"
+    t.string   "ram"
+    t.string   "video"
+    t.string   "hdd"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["user_id"], :name => "index_orders_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

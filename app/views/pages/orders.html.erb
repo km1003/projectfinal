@@ -1,8 +1,11 @@
 <h3>Open orders:</h3>
 
 <% if signed_in? %>
-<h1>Signed In Successfully</h1>
-<%= render 'shared/openorders' %>
+<h1 class="order">Order form:</h1>
+<span class="user_name">
+<%= current_user.name %>
+</span>
+<%= render 'shared/order_form' %>
 <% else %>You are not signed in. 
-<%= link_to "Sign In", signin_path, :class => "signup_button round" %>
+<%= link_to "Log in", signin_path, :class => "signup_button round" %>
 <% end %>

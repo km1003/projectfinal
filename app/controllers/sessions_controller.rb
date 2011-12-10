@@ -22,4 +22,10 @@ class SessionsController < ApplicationController
      current_user= nil
      redirect_to root_path
   end
+  
+  def logout
+     cookies.delete(:remember_token)
+     current_user= nil
+     redirect_to root_path
+  end
 end
