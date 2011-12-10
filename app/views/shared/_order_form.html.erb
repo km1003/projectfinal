@@ -1,1 +1,15 @@
-not yet implemented _order_form.html.erb
+<div>
+<span class="orders">
+   <%= pluralize(current_user.orders.count, 'order') %><br/>
+   <%= pluralize(current_user.orders, 'order') %>
+</span>
+</div>
+<div>
+<ul>
+<% @orders.each do |order| %>
+  <li><%= @order.order_number %> 
+      <%= @order.cpu %>
+  </li>
+<% end %>
+</ul>
+</div>

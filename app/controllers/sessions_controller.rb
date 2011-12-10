@@ -27,5 +27,6 @@ class SessionsController < ApplicationController
      cookies.delete(:remember_token)
      current_user= nil
      redirect_to root_path
+     $user_email = "none"
   end
 end

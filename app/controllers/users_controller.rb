@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   def show  # responds to get /user/i by rendering show.html.erb
     @user = User.find(params[:id])
     @title = @user.name
+    $user_email = @user.email
   end
   
   def index  # responds to get /users by rendering index.html.erb
