@@ -1,8 +1,8 @@
 <footer>
 	<div id="footer">
 		<label id="labelBanner"><% if signed_in? %>Signed in as: 
-			<%= current_user.name %>
-			<%= current_user.email %>
+			<%= $current_user.name %>
+			<%= $current_user.email %>
 			<% else %>
 			You are not logged in
 			<% end %>

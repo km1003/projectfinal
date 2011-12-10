@@ -7,17 +7,11 @@ class PagesController < ApplicationController
   end
   def orders
     @title = "Orders"
-    #@order = Order.new
-    #@user = User.find(params[:id])
-    #$user_email = none
-    @user = User.find_by_email($user_email)
-    if @user.nil?
+    if $current_user.nil?
       @orders = nil
     else
-      @orders = @user.orders.paginate(:page => params[:page] )
+      @orders = $current_user.orders.paginate(:page => params[:page] )
     end
-    #@orders = @user.orders.paginate(:page => params[:page] )
-    #@users = User.paginate(:page =>params[:page])
   end
   def customize
     @title = "Customize"

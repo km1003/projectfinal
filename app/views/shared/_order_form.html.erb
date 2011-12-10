@@ -1,7 +1,6 @@
 <div>
 <span class="orders">
    <%= pluralize(current_user.orders.count, 'order') %><br/>
-   <%= pluralize(current_user.orders, 'order') %>
 </span>
 </div>
 <div>
@@ -9,6 +8,9 @@
 <% @orders.each do |order| %>
   <li><%= @order.order_number %> 
       <%= @order.cpu %>
+      <%= @order.ram %>
+      <%= @order.video %>
+      <%= @order.hdd %>
   </li>
 <% end %>
 </ul>

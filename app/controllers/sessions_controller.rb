@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     else
       #sign_in user
       cookies.permanent[:remember_token] = user.email
-      current_user = user
+      $current_user = user
       redirect_to user
     end
   end

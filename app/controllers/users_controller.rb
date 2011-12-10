@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @title = @user.name
     $user_email = @user.email
+    @orders = @user.orders.paginate(:page => params[:page] )
   end
   
   def index  # responds to get /users by rendering index.html.erb

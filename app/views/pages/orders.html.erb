@@ -1,5 +1,5 @@
 <% if signed_in? %>
-<h1 class="order">Orders for <%= current_user.name %>:</h1>
+<h1 class="order">Orders for <%= $current_user.name %>:</h1>
 <%= render 'shared/order_form' %>
 <% else %>You are not signed in. 
 <%= link_to "Log in", signin_path, :class => "signup_button round" %>
