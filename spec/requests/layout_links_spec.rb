@@ -6,14 +6,9 @@ describe "LayoutLinks" do
       get '/customize'
       response.should have_selector("title", :content => "Customize")
     end
-  
-     it "should have a home page at '/home'" do
-      get '/home'
-      response.should have_selector("title", :content => "Home")
-    end
     
-     it "should have a login page at '/login'" do
-      get '/login'
+     it "should have a login page at '/signin'" do
+      get '/signin'
       response.should have_selector("title", :content => "Log in")
     end
     
@@ -25,7 +20,7 @@ describe "LayoutLinks" do
     it "should have the right links on the layout" do
       visit root_path
       response.should have_selector('title', :content => "Home")
-      click_link "Customize"
+      click_link "Sign in"
       response.should have_selector('title', :content => "Customize")
       click_link "Login"
       response.should have_selector('title', :content => "Login")

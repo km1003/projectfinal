@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  attr_accessible :name, :email
+  attr_accessible :id, :name, :email
   
   has_many :orders
   

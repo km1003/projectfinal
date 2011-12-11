@@ -2,16 +2,15 @@ require 'spec_helper'
 
 describe SessionsController do
   render_views
-
-  describe "GET 'submit'" do
+  
+  describe "GET 'signin'" do
     it "returns http success" do
-      get 'submit'
+      get :new
       response.should be_success
     end
     it "should have the right title" do
-      get :submit
-      response.should have_selector("title", :content => "Submit Order")
+      get :new
+      response.should have_selector("title", :content => "Log in")
     end
   end
-
 end

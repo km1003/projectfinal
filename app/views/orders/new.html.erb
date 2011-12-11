@@ -1,0 +1,42 @@
+<%= form_for(@order) do |f| %>
+
+<div class="field" >
+  <%= f.label :order_number %>
+  <%= f.text_field :order_number %>
+</div>
+<div class="field" >
+  <%= f.label :cpu %>
+  <%= f.select :cpu, options_for_select([["AMD Phenom x6 2.4"],
+    ["AMD Phenom x6 2.2"], ["AMD Phenom x4 3.2"], ["AMD Phenom x4 3.0"],
+    ["AMD Phenom x3 2.8"], ["Intel i7 9600"], ["Intel i7 9400"],
+    ["Intel i5 8400"], ["Intel i5 8200"], ["Intel i3 6200"]]) %>
+</div>
+<div class="field" >
+  <%= f.label :ram %>
+  <%= f.select :ram, options_for_select([["16gb 4x4gb"],
+    ["8gb 1x8"], ["8gb 2x4"], ["8gb 4x2"],
+    ["6gb 1x4 1x2"], ["4gb 1x4"], ["4gb 2x2"]]) %>
+</div>
+<div class="field" >
+  <%= f.label :video %>
+  <%= f.select :video, options_for_select([["2xAMD RadeonHD 6990 CrossFire"],
+    ["AMD RadeonHD 6990"], ["AMD RadeonHD 6950"], ["AMD RadeonHD 6770"],
+    ["2xNVIDIA GTX 590 SLI"], ["NVIDIA GTX 590"], ["NVIDIA GTX 580"],
+    ["NVIDIA GTX 560 Ti"]]) %>
+</div>
+<div class="field" >
+  <%= f.label :hdd %>
+  <%= f.select :hdd, options_for_select([["2x1tb 7200 rpm RAID 0"],
+    ["2x1tb 7200 rpm RAID 1"], ["2x1tb 7200 rpm"], ["1tb 7200"],
+    ["500gb 10000 rpm"], ["250gb 10000 rpm"], ["128gb 10000 rpm"],
+    ["256gb SSD"], ["128gb SSD"]]) %>
+</div>
+
+<p>
+<%= link_to pc1 %>
+</p>
+
+  <div class="actions" >
+    <%= f.submit "Submit Order" %>
+  </div>
+<% end %>

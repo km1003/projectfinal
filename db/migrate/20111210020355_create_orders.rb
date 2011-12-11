@@ -1,5 +1,5 @@
 class CreateOrders < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :orders do |t|
       t.integer :order_number
       t.integer :user_id
@@ -10,6 +10,11 @@ class CreateOrders < ActiveRecord::Migration
 
       t.timestamps
     end
+    
     add_index :orders, :user_id
+  end
+  
+  def self.down
+    drop_table :microposts
   end
 end

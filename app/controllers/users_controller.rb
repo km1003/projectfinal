@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :correct_user, :only => [:edit, :update]
   
   def new   # responds to get /users/new by rendering new.html.erb
-    @title = "Submit Order"
+    @title = "Sign up"
     @user = User.new
   end
   
